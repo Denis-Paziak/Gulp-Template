@@ -1,53 +1,15 @@
 import gulp from "gulp";
+
 import { path } from "./config/path.js";
+import { serverStart } from './config/task/browserSync.js';
+import { html } from "./config/task/html.js";
+import { scss } from "./config/task/scss.js";
+import { js } from "./config/task/javaScript.js";
+import { img } from "./config/task/img.js";
+import { addition } from "./config/task/addition.js";
+import { reset } from "./config/task/reset.js";
 
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
-const sass = gulpSass(dartSass);
-
-import browserSync from 'browser-sync';
-const server = browserSync.create();
-
-const { src, dest, parallel, watch } = gulp;
-
-const serverStart = () => {
-    server.init({
-        server: {
-            baseDir: path.buid.html
-        }
-    });
-}
-
-const html = () => {
-    return src(path.src.html)
-        .pipe(dest(path.buid.html))
-        .pipe(server.stream());
-}
-
-const scss = () => {
-    return src(path.src.scss)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(dest(path.buid.css))
-        .pipe(server.stream());
-}
-
-const js = () => {
-    return src(path.src.js)
-        .pipe(dest(path.buid.js))
-        .pipe(server.stream());
-}
-
-const img = () => {
-    return src(path.src.img)
-        .pipe(dest(path.buid.img))
-        .pipe(server.stream());
-}
-
-const addition = () => {
-    return src(path.src.addition)
-        .pipe(dest(path.buid.addition))
-        .pipe(server.stream());
-}
+const { series, parallel, watch } = gulp;
 
 const watcher = () => {
     watch(path.src.html, html);
@@ -57,4 +19,12 @@ const watcher = () => {
     watch(path.src.addition, addition);
 }
 
-gulp.task("default", parallel(serverStart, html, scss, js, img, addition, watcher));
+gulp.task(
+    "default",
+    series(
+        await reset,
+        parallel(
+            reset, serverStart, html, scss, js, img, addition, watcher,
+        )
+    )
+);
