@@ -12,11 +12,11 @@ import { reset } from "./config/task/reset.js";
 const { series, parallel, watch } = gulp;
 
 const watcher = () => {
-    watch(path.src.html, html);
-    watch(path.src.scss, scss);
-    watch(path.src.js, js);
-    watch(path.src.img, img);
-    watch(path.src.addition, addition);
+    watch(path.watch.html, html);
+    watch(path.watch.scss, scss);
+    watch(path.watch.js, js);
+    watch(path.watch.img, img);
+    watch(path.watch.addition, addition);
 }
 
 gulp.task(

@@ -5,7 +5,7 @@ export const path = {
     src: {
         home: `${srcFS}/`,
         html: `${srcFS}/*.html`,
-        scss: `${srcFS}/scss/*.scss`,
+        scss: `${srcFS}/scss/style.scss`,
         js: `${srcFS}/js/*.js`,
         img: `${srcFS}/img/**/*.*`,
         addition: `${srcFS}/addition/**/*.*`,
@@ -17,5 +17,13 @@ export const path = {
         js: `${buildFS}/js/`,
         img: `${buildFS}/img/`,
         addition: `${buildFS}/addition/`,
+    },
+    watch: {
+        home: `${srcFS}/`,
+        html: `${srcFS}/*.html`,
+        scss: `${srcFS}/scss/*.scss`,
+        js: `${srcFS}/js/*.js`,
+        img: `${srcFS}/img/**/*.*`,
+        addition: `${srcFS}/addition/**/*.*`,
     }
 }
