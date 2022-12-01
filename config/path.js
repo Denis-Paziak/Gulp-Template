@@ -7,6 +7,7 @@ export const path = {
         html: `${srcFS}/*.html`,
         scss: `${srcFS}/scss/style.scss`,
         js: `${srcFS}/js/*.js`,
+        typeScript: `${srcFS}/typeScript/*.ts`,
         img: `${srcFS}/img/**/*.*`,
         addition: `${srcFS}/addition/**/*.*`,
     },
@@ -15,6 +16,7 @@ export const path = {
         html: `${buildFS}/`,
         css: `${buildFS}/css/`,
         js: `${buildFS}/js/`,
+        typeScript: `${buildFS}/js/`,
         img: `${buildFS}/img/`,
         addition: `${buildFS}/addition/`,
     },
@@ -23,6 +25,7 @@ export const path = {
         html: `${srcFS}/*.html`,
         scss: `${srcFS}/scss/*.scss`,
         js: `${srcFS}/js/*.js`,
+        typeScript: `${srcFS}/typeScript/*.ts`,
         img: `${srcFS}/img/**/*.*`,
         addition: `${srcFS}/addition/**/*.*`,
     }
