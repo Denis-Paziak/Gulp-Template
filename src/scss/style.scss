@@ -1,3 +1,4 @@
+@import "fonts";
 @import "variables";
 
 * {
@@ -6,9 +7,20 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Arial";
+    background: $white;
+}
+
 a {
     text-decoration: none;
-    color: $text;
+    color: $black;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer;
 }
 
 .container {
